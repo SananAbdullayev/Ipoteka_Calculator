@@ -1,9 +1,12 @@
-package ipoteka_calculator;
+package ipoteka_calculator_test;
 
 import java.math.BigDecimal;
+import java.util.Date;
+import java.util.List;
 
-public class Credit {
-    private static Credit credit;
+public class CreditTest {
+    private static CreditTest creditTest;
+    private long id;
     private BigDecimal menzilinDeyeri;
     private BigDecimal ilkinOdenis;
     private BigDecimal kreditMeblegi;
@@ -11,22 +14,22 @@ public class Credit {
     private int muddet;
     private double illikFaiz;
 
-    public Credit() {
+    public CreditTest() {
     }
 
-    public static Credit instance() {
-        if (credit == null) {
-            credit = new Credit();
+    public static CreditTest getInstance() {
+        if (creditTest == null) {
+            creditTest = new CreditTest();
         }
-        return credit;
+        return creditTest;
     }
 
-    public static Credit getCredit() {
-        return credit;
+    public long getId() {
+        return id;
     }
 
-    public static void setCredit(Credit credit) {
-        Credit.credit = credit;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public BigDecimal getMenzilinDeyeri() {

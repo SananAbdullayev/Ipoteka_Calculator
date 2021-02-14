@@ -1,8 +1,9 @@
-package ipoteka_calculator;
+package ipoteka_calculator_test;
 
+import java.math.BigDecimal;
 import java.util.Scanner;
 
-public class IpotekaUtil {
+public class Utility {
     public static int ipoteUsulu() {
         int a;
         Scanner scanner2 = new Scanner(System.in);
@@ -29,37 +30,37 @@ public class IpotekaUtil {
         return a;
     }
 
-    public static int menzilDeyeri() {
-        int a = 0;
+    public static BigDecimal menzilDeyeri() {
+        BigDecimal b = BigDecimal.ZERO;
         boolean flag = true;
         Scanner scanner2 = new Scanner(System.in);
         while (flag) {
             System.out.print("Mənzilin Dəyəri (min - 20000 AZN): ");
-            a = scanner2.nextInt();
-            if (a < 20000) {
+            b = scanner2.nextBigDecimal();
+            if (b.compareTo(BigDecimal.valueOf(20000)) < 0) {
                 System.out.print("Minimal qiymət 20000 AZN dir\n Zəhmət olmasa təkrar daxil edin: ");
                 flag = true;
             } else {
                 flag = false;
             }
         }
-        return a;
+        return b;
     }
 
     public static int muddet() {
-        int a = 0;
+        int b = 0;
         boolean flag = true;
         Scanner scanner2 = new Scanner(System.in);
         while (flag) {
             System.out.print("Müddət (ay): ");
-            a = scanner2.nextInt();
-            if (a > 36 && a <= 360) {
+            b = scanner2.nextInt();
+            if (b > 36 && b <= 360) {
                 flag = false;
             } else {
                 System.out.println("Müddət 36 - 360 (ay) arası olmalıdır\n Zəhmət olmasa təkrar daxil edin: ");
                 flag = true;
             }
         }
-        return a;
+        return b;
     }
 }
