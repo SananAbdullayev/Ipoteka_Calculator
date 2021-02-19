@@ -37,7 +37,7 @@ public class IpotekaSystem {
 
         Calendar calendar1 = Calendar.getInstance();
         calendar1.setTime(customer.getBirthday());
-        System.out.println(LocalDateTime.now().getYear() - calendar1.get(Calendar.YEAR));
+//        System.out.println(LocalDateTime.now().getYear() - calendar1.get(Calendar.YEAR));
         if (nextDate.compareTo(customerDate) > 0 || LocalDateTime.now().getYear() - calendar1.get(Calendar.YEAR) < 18) {
             System.out.println("ipoteka verile bilmez");
             throw new AgeNotEnoughException(
@@ -90,10 +90,18 @@ public class IpotekaSystem {
             }
         }
         MonthlyPaymentTest monthlyPayment = MonthlyPaymentTest.getInstance();
-        //todo Ayliq Odenisin Tapilmasi
-        monthlyPayment.setAyliqOdenis((creditTest.getKreditMeblegi().multiply(BigDecimal.valueOf(creditTest.getIllikFaiz() / (12 * 100))).multiply(
+        //todo Ayliq Odenisin Tapilmasi -> Total Amount
+        monthlyPayment.setUmumiMebleg((creditTest.getKreditMeblegi().multiply(BigDecimal.valueOf(creditTest.getIllikFaiz() / (12 * 100))).multiply(
                 BigDecimal.valueOf(Math.pow((1 + (creditTest.getIllikFaiz() / (12 * 100))), creditTest.getMuddet())))).divide(
                 BigDecimal.valueOf(Math.pow((1 + (creditTest.getIllikFaiz() / (12 * 100))), creditTest.getMuddet()) - 1), RoundingMode.HALF_UP));
+        //todo Esas Meblegin hesablanmasi -> Base Amount
+        monthlyPayment.setEsasMebleg(creditTest.getKreditMeblegi().divide(BigDecimal.valueOf(creditTest.getMuddet()), RoundingMode.HALF_UP));
+
+        //todo Faiz Mebleginin hesablanmasi -> Interest Amount
+        monthlyPayment.setFaizMeblegi(monthlyPayment.getUmumiMebleg().subtract(monthlyPayment.getEsasMebleg()));
+
+        //todo Umumi Faiz Meblegi
+        creditTest.setFaizMeblegi(monthlyPayment.getUmumiMebleg().multiply(BigDecimal.valueOf(creditTest.getMuddet())));
 
         return result;
     }

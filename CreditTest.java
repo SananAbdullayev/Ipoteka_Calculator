@@ -2,15 +2,16 @@ package ipoteka_calculator_test;
 
 import java.math.BigDecimal;
 import java.util.Date;
-import java.util.List;
 
 public class CreditTest {
     private static CreditTest creditTest;
     private long id;
+    private long customerId;
     private BigDecimal menzilinDeyeri;
     private BigDecimal ilkinOdenis;
     private BigDecimal kreditMeblegi;
-    private BigDecimal umumiFaizMeblegi;
+    private BigDecimal faizMeblegi;
+    private Date actionDate;
     private int muddet;
     private double illikFaiz;
 
@@ -56,14 +57,6 @@ public class CreditTest {
         this.kreditMeblegi = kreditMeblegi;
     }
 
-    public BigDecimal getUmumiFaizMeblegi() {
-        return umumiFaizMeblegi;
-    }
-
-    public void setUmumiFaizMeblegi(BigDecimal umumiFaizMeblegi) {
-        this.umumiFaizMeblegi = umumiFaizMeblegi;
-    }
-
     public int getMuddet() {
         return muddet;
     }
@@ -78,5 +71,29 @@ public class CreditTest {
 
     public void setIllikFaiz(double illikFaiz) {
         this.illikFaiz = illikFaiz;
+    }
+
+    public long getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(long customerId) {
+        this.customerId = customerId;
+    }
+
+    public BigDecimal getFaizMeblegi() {
+        return faizMeblegi;
+    }
+
+    public void setFaizMeblegi(BigDecimal faizMeblegi) {
+        this.faizMeblegi = faizMeblegi;
+    }
+
+    public Date getActionDate() {
+        return actionDate;
+    }
+
+    public void setActionDate(Date actionDate) {
+        this.actionDate = actionDate;
     }
 }

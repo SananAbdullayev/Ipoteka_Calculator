@@ -71,6 +71,5 @@ public class CustomerTest {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-
     }
 }

@@ -71,8 +71,11 @@ public class IpotekaMainTest {
             System.out.println("Bank Terefinden Verilen Kreditin Meblegi: " + creditTest.getKreditMeblegi() + "AZN");
             System.out.println("Ilkin Odenis Meblegi: " + creditTest.getIlkinOdenis() + "AZN");
             System.out.println("Illik Faiz Miqdari: " + creditTest.getIllikFaiz() + "%");
+            System.out.println("Umumi Məbləg: " + creditTest.getFaizMeblegi().setScale(2, BigDecimal.ROUND_UP) + "AZN");
 
-            System.out.println("Ayliq Odenecek Mebleg: " + monthlyPayment.getAyliqOdenis().setScale(2, BigDecimal.ROUND_UP) + "AZN");
+            System.out.println("Ayliq Odenecek Mebleg: " + monthlyPayment.getUmumiMebleg().setScale(2, BigDecimal.ROUND_UP) + "AZN");
+            System.out.println("Base Ammount: " + monthlyPayment.getEsasMebleg().setScale(2, BigDecimal.ROUND_UP) + "AZN");
+            System.out.println("Interes Ammount: " + monthlyPayment.getFaizMeblegi().setScale(2, BigDecimal.ROUND_UP) + "AZN");
 
         } catch (AgeNotEnoughException e) {
             System.out.println("AgeNotEnoughException");

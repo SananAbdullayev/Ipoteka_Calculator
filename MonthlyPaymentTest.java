@@ -2,36 +2,71 @@ package ipoteka_calculator_test;
 
 import java.math.BigDecimal;
 import java.util.Date;
-import java.util.List;
 
 public class MonthlyPaymentTest {
     private static MonthlyPaymentTest monthlyPayment;
-    private BigDecimal ayliqOdenis;
-    private Date odenisAylari;
+    private long id;
+    private long creditId;
+    private Date paymentDate;
+    private BigDecimal esasMebleg;
+    private BigDecimal faizMeblegi;
+    private BigDecimal umumiMebleg;
 
     public MonthlyPaymentTest() {
     }
 
-    public static MonthlyPaymentTest getInstance(){
-        if (monthlyPayment == null){
+    public static MonthlyPaymentTest getInstance() {
+        if (monthlyPayment == null) {
             monthlyPayment = new MonthlyPaymentTest();
         }
         return monthlyPayment;
     }
 
-    public Date getOdenisAylari() {
-        return odenisAylari;
+    public long getId() {
+        return id;
     }
 
-    public void setOdenisAylari(Date odenisAylari) {
-        this.odenisAylari = odenisAylari;
+    public void setId(long id) {
+        this.id = id;
     }
 
-    public BigDecimal getAyliqOdenis() {
-        return ayliqOdenis;
+    public long getCreditId() {
+        return creditId;
     }
 
-    public void setAyliqOdenis(BigDecimal ayliqOdenis) {
-        this.ayliqOdenis = ayliqOdenis;
+    public void setCreditId(long creditId) {
+        this.creditId = creditId;
+    }
+
+    public Date getPaymentDate() {
+        return paymentDate;
+    }
+
+    public void setPaymentDate(Date paymentDate) {
+        this.paymentDate = paymentDate;
+    }
+
+    public BigDecimal getEsasMebleg() {
+        return esasMebleg;
+    }
+
+    public void setEsasMebleg(BigDecimal esasMebleg) {
+        this.esasMebleg = esasMebleg;
+    }
+
+    public BigDecimal getFaizMeblegi() {
+        return faizMeblegi;
+    }
+
+    public void setFaizMeblegi(BigDecimal faizMeblegi) {
+        this.faizMeblegi = faizMeblegi;
+    }
+
+    public BigDecimal getUmumiMebleg() {
+        return umumiMebleg;
+    }
+
+    public void setUmumiMebleg(BigDecimal umumiMebleg) {
+        this.umumiMebleg = umumiMebleg;
     }
 }
